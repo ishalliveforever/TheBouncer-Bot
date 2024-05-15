@@ -1,52 +1,71 @@
-# TheBouncer Discord Bot
+Here's a suggested README file that you can use to help others understand how to work with "The Bouncer" Discord bot. This document includes setup instructions, required environment variables, and an overview of what the bot does.
 
-TheBouncer is a Discord bot designed to automate the role assignment process based on verification messages. It listens for verification success messages and assigns corresponding roles to users accordingly.
+```markdown
+# The Bouncer Discord Bot
+
+The Bouncer is a Discord bot designed to monitor messages from specific webhooks and assign roles based on the contents of these messages within the Discord guild. It automates the process of role management based on predefined criteria in the message embeds.
 
 ## Features
 
-- **Automatic Role Assignment**: The bot automatically assigns roles to users based on verification success messages.
-- **Flexible Role Mapping**: Roles are assigned based on the information provided in the verification message.
-- **Customizable**: Easily configurable through environment variables and simple role mapping.
+- **Webhook Monitoring**: Listens to incoming webhook messages.
+- **Role Assignment**: Automatically assigns roles based on keywords found in the message embeds.
+- **Logging**: Provides detailed logs for debugging and tracking bot activity.
 
-## Getting Started
+## Setup
 
-To use TheBouncer in your Discord server, follow these steps:
+### Prerequisites
 
-1. **Clone the Repository**: Clone this repository to your local machine using `git clone`.
+- Node.js (v16 or higher recommended)
+- npm (Node Package Manager)
+- A Discord Bot Token
+- A Discord server with permissions to manage roles
 
-2. **Install Dependencies**: Run `npm install` to install the required dependencies.
+### Installation
 
-3. **Set Up Environment Variables**: Create a `.env` file in the root directory of the project and define the following environment variables:
-
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-repository/the-bouncer-bot.git
+   cd the-bouncer-bot
    ```
-   DISCORD_TOKEN=your_discord_bot_token
-   GRAND_TARDINIANS_ROLE_ID=your_grand_tardinians_role_id
-   ZERO_FACE_ROLE_ID=your_zero_face_role_id
-   PIXEL_FOXES_ROLE_ID=your_pixel_foxes_role_id
+
+2. **Install dependencies:**
+   ```bash
+   npm install
    ```
 
-   Replace `your_discord_bot_token`, `your_grand_tardinians_role_id`, `your_zero_face_role_id`, and `your_pixel_foxes_role_id` with your actual Discord bot token and role IDs.
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory of your project and add the following variables:
+   ```plaintext
+   DISCORD_TOKEN=your_discord_bot_token_here
+   GRAND_TARDINIANS_ROLE_ID=role_id_here
+   ORDER_OF_THE_DELTA_ROLE_ID=role_id_here
+   ZERO_FACE_ROLE_ID=role_id_here
+   PIXEL_FOXES_ROLE_ID=role_id_here
+   ```
 
-4. **Run the Bot**: Start the bot by running `node bot.js`.
+   Replace `your_discord_bot_token_here` and `role_id_here` with your actual Discord bot token and role IDs.
 
-5. **Invite the Bot to Your Server**: Invite the bot to your Discord server using the OAuth2 URL generated for your bot.
+### Configuration
 
-6. **Configure Verification Messages**: Configure your verification system to send success messages with the appropriate format for role assignment.
+- **Webhook ID**: The bot is configured to listen to a specific webhook ID. Make sure to replace the webhook ID in the bot code if necessary.
+
+### Running the Bot
+
+To start the bot, run:
+```bash
+node index.js
+```
+
+The console will display a message confirming that the bot has logged in.
 
 ## Usage
 
-Once the bot is running and configured, it will automatically listen for verification success messages and assign roles to users based on the information provided in the messages.
+Once the bot is running, it will automatically listen for messages from the configured webhook. If a message contains an embed with a username and any of the specified keywords (`Grand Tardinians`, `Order of the Delta`, `0Face`, `Pixel Foxes`), it will assign the corresponding role to the user mentioned in the message.
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues and pull requests to suggest improvements, report bugs, or add new features.
+Contributions to the development of The Bouncer are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
 
-## License
+## Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to the [Discord.js](https://discord.js.org/) library for making it easy to interact with the Discord API.
-- Inspired by the need for automated role assignment in Discord servers.
-
+If you encounter any problems or have suggestions, please open an issue on the GitHub repository page.
