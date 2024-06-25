@@ -1,71 +1,78 @@
-Here's a suggested README file that you can use to help others understand how to work with "The Bouncer" Discord bot. This document includes setup instructions, required environment variables, and an overview of what the bot does.
+# The Bouncer Bot
 
-```markdown
-# The Bouncer Discord Bot
-
-The Bouncer is a Discord bot designed to monitor messages from specific webhooks and assign roles based on the contents of these messages within the Discord guild. It automates the process of role management based on predefined criteria in the message embeds.
+The Bouncer Bot is a Discord bot designed to manage user roles based on their holdings in specific NFT collections on the Bitcoin SV (BSV) blockchain. It integrates with the Panda Wallet and uses cron jobs to periodically check user holdings and update their roles accordingly.
 
 ## Features
+- Manage user roles based on their NFT holdings.
+- Periodically check user holdings and update roles.
+- Provide collection stats via Discord commands.
 
-- **Webhook Monitoring**: Listens to incoming webhook messages.
-- **Role Assignment**: Automatically assigns roles based on keywords found in the message embeds.
-- **Logging**: Provides detailed logs for debugging and tracking bot activity.
+## Prerequisites
+- Node.js 14+
+- Discord account and server
+- Panda Wallet extension installed in your browser
 
 ## Setup
 
-### Prerequisites
+### Step 1: Clone the Repository
+```sh
+git clone https://github.com/ishalliveforever/bouncer-bot.git
+cd bouncer-bot
+```
 
-- Node.js (v16 or higher recommended)
-- npm (Node Package Manager)
-- A Discord Bot Token
-- A Discord server with permissions to manage roles
+### Step 2: Install Dependencies
+```sh
+npm install
+```
 
-### Installation
+### Step 3: Set Up Environment Variables
+Create a `.env` file in the root directory with the following content:
+```plaintext
+# Discord Bot Configuration
+DISCORD_TOKEN=your_discord_token
+DISCORD_GUILD_ID=your_discord_guild_id
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-repository/the-bouncer-bot.git
-   cd the-bouncer-bot
-   ```
+# Role IDs
+GRAND_TARDINIANS_ROLE_ID=your_grand_tardinians_role_id
+ORDER_OF_THE_DELTA_ROLE_ID=your_order_of_the_delta_role_id
+ZERO_FACE_ROLE_ID=your_zero_face_role_id
+DISTORTION_ROLE_ID=your_distortion_role_id
+PIXEL_FOXES_ROLE_ID=your_pixel_foxes_role_id
+ICARUS_CORP_ROLE_ID=your_icarus_corp_role_id
+GM_PEPE_ROLE_ID=your_gm_pepe_role_id
+DRAGON_ARMY_ROLE_ID=your_dragon_army_role_id
+OG_FROGS_ROLE_ID=your_og_frogs_role_id
+WTF_TOKYO_ROLE_ID=your_wtf_tokyo_role_id
+TWETCH_SURVIVORS_ROLE_ID=your_twetch_survivors_role_id
+BASED_FROGS_ROLE_ID=your_based_frogs_role_id
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+# API URLs
+SERVER_URL=https://your-server-url.com
+API_URL=https://your-api-url.com
+```
 
-3. **Set up environment variables:**
-   Create a `.env` file in the root directory of your project and add the following variables:
-   ```plaintext
-   DISCORD_TOKEN=your_discord_bot_token_here
-   GRAND_TARDINIANS_ROLE_ID=role_id_here
-   ORDER_OF_THE_DELTA_ROLE_ID=role_id_here
-   ZERO_FACE_ROLE_ID=role_id_here
-   PIXEL_FOXES_ROLE_ID=role_id_here
-   ```
-
-   Replace `your_discord_bot_token_here` and `role_id_here` with your actual Discord bot token and role IDs.
-
-### Configuration
-
-- **Webhook ID**: The bot is configured to listen to a specific webhook ID. Make sure to replace the webhook ID in the bot code if necessary.
-
-### Running the Bot
-
-To start the bot, run:
-```bash
+### Step 4: Run the Bot
+```sh
 node index.js
 ```
 
-The console will display a message confirming that the bot has logged in.
-
 ## Usage
 
-Once the bot is running, it will automatically listen for messages from the configured webhook. If a message contains an embed with a username and any of the specified keywords (`Grand Tardinians`, `Order of the Delta`, `0Face`, `Pixel Foxes`), it will assign the corresponding role to the user mentioned in the message.
+### Flex Command
+Use the `/flex` command to display your collection stats.
+
+### Periodic Checks
+The bot periodically checks user holdings and updates roles accordingly.
 
 ## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-Contributions to the development of The Bouncer are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
+## Donate
+## BSV Address: 1AehJyGHnPXMZ2zg4wdBjaowdLTebysFus
+## BCH: qrxx9gycn3rrp6pd29p84ez2cceqc93gl5zdvttrjw.
+## BTC Address: bc1q5dc49up9k8ne90xn4n6edxd908n8het9maxwhu
+## Doge: DJ1pkmDwdLS94ZSEJdVJoq2MHprDfjaUpZ
+## Sol: 9HmpAhDoicGehmGhbbN5kmhsd5uZGm2DEDt68cGiUseJ
 
-## Support
-
-If you encounter any problems or have suggestions, please open an issue on the GitHub repository page.
+## License
+This project is licensed under the MIT License.
